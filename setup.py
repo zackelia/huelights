@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="huelights",
-    version="0.0.1",
+    version="0.1.0",
     author="Zack Elia",
     author_email="pypi@zacharyelia.com",
     description="A Python wrapper to interact with Philips Hue smart lights",
@@ -14,7 +14,7 @@ setuptools.setup(
     url="https://github.com/zackelia/huelights",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.7",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
