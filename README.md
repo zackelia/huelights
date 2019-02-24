@@ -17,7 +17,7 @@ Install from PyPI:
 A small example for interacting with your Philips Bridge to manipulate Philips Hue smart lights:
 
 ```python
-from huelights.bridge import Bridge
+from huelights import Bridge
 
 bridge = Bridge('username')
 
