@@ -5,6 +5,7 @@ from huelights.light import Light
 
 class Bridge:
     """ Represents the Bridge """
+
     def __init__(self, username, ip=None):
         self._username = username
 
@@ -12,27 +13,31 @@ class Bridge:
             self._ip = ip
 
         else:
-            r = utils.get('https://discovery.meethue.com')
-            self._ip = r.json()[0]['internalipaddress']
+            r = utils.get("https://discovery.meethue.com")
+            self._ip = r.json()[0]["internalipaddress"]
 
-        self._url = f'http://{self._ip}'
+        self._url = f"http://{self._ip}"
 
     def get_lights(self):
         """ Get list of all Light objects """
-        r = utils.get(f'{self._url}/api/{self._username}/lights')
+        r = utils.get(f"{self._url}/api/{self._username}/lights")
 
         lights = []
 
         for index, body in r.json().items():
-            light = Light(int(index), f'{self._url}/api/{self._username}/lights/{index}', body)
+            light = Light(
+                int(index), f"{self._url}/api/{self._username}/lights/{index}", body
+            )
             lights.append(light)
 
         return lights
 
     def get_light(self, index):
         """ Get a light object with index """
-        r = utils.get(f'{self._url}/api/{self._username}/lights/{index}')
+        r = utils.get(f"{self._url}/api/{self._username}/lights/{index}")
 
-        light = Light(int(index), f'{self._url}/api/{self._username}/lights/{index}', r.json())
+        light = Light(
+            int(index), f"{self._url}/api/{self._username}/lights/{index}", r.json()
+        )
 
         return light
