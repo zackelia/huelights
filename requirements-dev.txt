@@ -1,0 +1,4 @@
+requests
+pre-commit
+black
+flake8
