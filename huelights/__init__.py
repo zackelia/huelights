@@ -1,1 +1,1 @@
-from huelights.bridge import Bridge
+from .bridge import Bridge
